@@ -55,10 +55,16 @@ function doubleMoney() {
     data = data.map((user) => {
         return { ...user, money: user.money * 2 }
     });
-    
+
+    updateUI();
+}
+
+function sortByRichest() {
+    data.sort((a, b) => b.money - a.money);
     updateUI();
 }
 
 // Event listeners
 addUserBtn.addEventListener('click', getRandomUser);
 doubleBtn.addEventListener('click', doubleMoney);
+sortBtn.addEventListener('click', sortByRichest);
