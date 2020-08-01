@@ -71,8 +71,16 @@ function showOnlyMillionaires() {
     updateUI();
 }
 
+function calculateTotalWealth() {
+    const wealth = data.reduce((acc, user) => (acc += user.money), 0);
+    const wealthElement = document.createElement('div');
+    wealthElement.innerHTML = `<h3>Total Wealth: <strong>${formatAsMoney(wealth)}</strong></h3>`;
+    main.appendChild(wealthElement);
+}
+
 // Event listeners
 addUserBtn.addEventListener('click', getRandomUser);
 doubleBtn.addEventListener('click', doubleMoney);
 sortBtn.addEventListener('click', sortByRichest);
 showMillionairesBtn.addEventListener('click', showOnlyMillionaires);
+calculateWealthBtn.addEventListener('click', calculateTotalWealth);
