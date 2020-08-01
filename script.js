@@ -50,5 +50,15 @@ function formatAsMoney(number) {
     return '$' + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&, ');
 }
 
+// Double all users' money
+function doubleMoney() {
+    data = data.map((user) => {
+        return { ...user, money: user.money * 2 }
+    });
+    
+    updateUI();
+}
+
 // Event listeners
 addUserBtn.addEventListener('click', getRandomUser);
+doubleBtn.addEventListener('click', doubleMoney);
